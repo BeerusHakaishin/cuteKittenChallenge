@@ -1,0 +1,33 @@
+.icon {
+    width: 90px;
+    vertical-align: middle;
+  }
+  
+  .noCatSection {
+    width: 250px;
+  }
+  
+  .userKittenCard {
+    position: relative;
+    padding: 12px;
+    box-shadow: rgba(12, 185, 238, 0.25) 0px 13px 27px -5px,
+      rgba(187, 8, 241, 0.3) 0px 8px 16px -8px;
+    margin-bottom: 30px;
+  }
+  
+  .userKittenCard p {
+    padding: 1px;
+  }
+  
+  .userKittenCard p span {
+    font-size: 12px;
+    color: grey;
+  }
+  
+  .image {
+    width: 50%;
+    border-radius: 3px;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+  }

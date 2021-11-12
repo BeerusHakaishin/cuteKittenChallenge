@@ -1,0 +1,149 @@
+<section id="createKitten">
+    <div class="container">
+      <div class="row relative">
+        <h2 class="mt-4">Hé toi , c'est ici que tu peut ajouter ton nouveau chaton !</h2>
+        <div class="container">
+
+          <form
+          [formGroup]="AdoptKittenForm"
+          (ngSubmit)="AdoptKittenForm.valid && addNewKitten()"
+          #cuteKittenForm="ngForm">
+
+          <div class="form-group mt-2">
+            <label>Son Nom :
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                formControlName="name"
+              />
+            </label>
+
+             <!--Errors Message Section Below -->
+            <div
+              *ngIf="
+                AdoptKittenForm.controls['name'].errors &&
+                AdoptKittenForm.controls['name'].touched
+              ">
+              <div
+                [hidden]="!AdoptKittenForm.controls['name'].errors.required"
+                class="text-danger">
+                Son p'tit nom est required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Son Surnom :
+              <input
+                type="text"
+                name="name"
+                class="form-control"
+                formControlName="surname"
+              />
+            </label>
+
+             <!--Errors Message Section Below -->
+            <div
+              *ngIf="
+                AdoptKittenForm.controls['surname'].errors &&
+                AdoptKittenForm.controls['surname'].touched
+              ">
+              <div
+                [hidden]="!AdoptKittenForm.controls['surname'].errors.required"
+                class="text-danger">
+                Son p'tit surnom est required.
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group mt-2">
+            <label
+              >Sa race:
+              <input
+                type="text"
+                name="race"
+                class="form-control"
+                formControlName="race"
+              />
+            </label>
+
+             <!--Errors Message Section Below -->
+            <div
+              *ngIf="
+                AdoptKittenForm.controls['race'].errors &&
+                AdoptKittenForm.controls['race'].touched
+            ">
+            <div
+                [hidden]="!AdoptKittenForm.controls['race'].errors?.required"
+                class="text-danger"
+            >
+                Sa race est required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label>Lien de sa photo :
+              <input
+                type="text"
+                name="imageLink"
+                class="form-control"
+                formControlName="image"
+              />
+            </label>
+
+             <!--Errors Message Section Below -->
+            <div
+              *ngIf="
+                AdoptKittenForm.controls['image'].errors &&
+                AdoptKittenForm.controls['image'].touched
+              ">
+              <div
+                [hidden]="!AdoptKittenForm.controls['image'].errors.required"
+                class="text-danger"
+              >
+                Le lien de sa photo est required.
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mt-2">
+            <label
+              >Son Anniversaire :
+              <input
+                type="date"
+                name="birthdate"
+                class="form-control"
+                formControlName="birthdate"
+              />
+            </label>
+
+            <!--Errors Message Section Below -->
+            <div
+              *ngIf="
+                AdoptKittenForm.controls['birthdate'].errors &&
+                AdoptKittenForm.controls['birthdate'].touched
+              ">
+              <div
+                [hidden]="!AdoptKittenForm.controls['birthdate'].errors.required"
+                class="text-danger">
+                Sa date d'anniversaire est required.
+              </div>
+            </div>
+          </div>
+
+           <!--Errors Message Section Below -->
+          <div
+            *ngIf="!AdoptKittenForm.errors && cuteKittenForm.submitted"
+            class="text-success mt-3"
+          >
+            Plus qu'une étape avant qu'il ne soit des vôtres !
+          </div>
+          <button type="submit" class="btn bg-info mt-4">MiaouW</button>
+        </form>
+
+        </div>
+      </div>
+    </div>
+  </section>

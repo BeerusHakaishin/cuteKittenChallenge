@@ -1,0 +1,69 @@
+<section id="adopt">
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+          <h2 class="mt-4">
+            <img src="assets/img/popCat.png" alt="adopte moi" class="icon"/>
+            Tes p'tits chats :
+          </h2>
+          <div *ngIf="!anyCatsAdopted" class="text-center">
+            <img
+              src="assets/img/adoptCat.jpg"
+              alt="AdoptACat"
+              class="noCatSection"
+            />
+            <p class="text-black-60 fst-italic">
+              Adopte ton 1er chat !
+            </p>
+          </div>
+
+          <div *ngIf="anyCatsAdopted">
+            <div *ngFor="let cat of catsAdopted">
+              <app-user-kitten [cat]="cat"></app-user-kitten>
+            </div>
+          </div>
+    
+        </div>
+        
+        <div class="col-md-8">
+          <h2 class="mt-4">
+            <img src="assets/img/popCat.png" alt="adopt me" class="icon" />
+            Adopte moi !
+          </h2>
+          <div *ngIf="!CatPresentInDaHouse" class="text-center">
+            <img
+              src="assets/img/adoptCat.jpg"
+              alt="Pas de chat pour le moment"
+              class="noCat"
+            />
+            <p class="text-black-60 fst-italic">
+              Adoptez un chat dès maintenant !
+            </p>
+          </div>
+          <div *ngIf="CatPresentInDaHouse">
+            <div
+              *ngFor="let kitten of kittens; let index = index"
+              class="cuteKittenCard"
+            >
+              <p><span>Son p'tit nom :</span> {{ kitten.name }}</p>
+              <p><span>Son espèce :</span> {{ kitten.race }} <br /></p>
+              <p><span>Sa date de naissance :</span> {{ kitten.birthdate }}</p>
+              <br>
+              <img src="{{ kitten.image }} " alt="Photo de ton chat" class="image"/>
+
+              <button class="btn btn-success" (click)="adoptCuteKitten(index)">
+                Plus qu'un clic pour m'adopter !
+              </button>     
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </section>
+  
+ <hr>
+  
+<app-create-kitten (sendNewKitten)="onReceiveNewKitten($event)"></app-create-kitten>
